@@ -68,27 +68,29 @@ public class Bungalow extends JFrame {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				try {
-						buchungen[Integer.parseInt(textBungalowNr.getText())][0] = Integer
-								.parseInt(textBungalowNr.getText()); // [x] -> Bungalow Nummer; [y] -> Variable 1
+						
 
 						if (Integer.parseInt(textBungalowNr.getText()) <= 0
 								|| Integer.parseInt(textBungalowNr.getText()) > 10) {
-							textRueckmeldung.setText("Bitte gib eine Bungalow-Nr von 1-10 ein.");
+							throw new Exception();											//Fehler Bungalow-Nummer abfangen
+						}else {
+							buchungen[Integer.parseInt(textBungalowNr.getText())][0] = Integer
+									.parseInt(textBungalowNr.getText()); // [x] -> Bungalow Nummer; [y] -> Variable 1
 						}
 
-						buchungen[Integer.parseInt(textBungalowNr.getText())][1] = Integer
-								.parseInt(textStartWoche.getText()); // [x] -> Bungalow Nummer; [y] -> Variable 2
-						buchungen[Integer.parseInt(textBungalowNr.getText())][2] = Integer
-								.parseInt(textEndWoche.getText()); // [x] -> Bungalow Nummer; [y] -> Variable 3
 						
-						if (Integer.parseInt(textStartWoche.getText()) < 1
-							|| Integer.parseInt(textStartWoche.getText()) > 51 
-							|| Integer.parseInt(textEndWoche.getText()) > 52
-							|| Integer.parseInt(textEndWoche.getText()) < 2 
-							|| Integer.parseInt(textStartWoche.getText()) >= Integer.parseInt(textEndWoche.getText())) {
-							textRueckmeldung.setText("Beachte die Begrenzungen für die Start- und Endwochen!");
+						
+						if (Integer.parseInt(textStartWoche.getText()) < 1|| Integer.parseInt(textStartWoche.getText()) > 51 ||
+								Integer.parseInt(textEndWoche.getText()) < 1 || Integer.parseInt(textEndWoche.getText()) > 52 ||
+								Integer.parseInt(textStartWoche.getText()) >= Integer.parseInt(textEndWoche.getText())){
+							throw new Exception();												//Fehler Start- und Endwoche abfangen
+						}else {
+							buchungen[Integer.parseInt(textBungalowNr.getText())][1] = Integer
+									.parseInt(textStartWoche.getText()); // [x] -> Bungalow Nummer; [y] -> Variable 2
+							buchungen[Integer.parseInt(textBungalowNr.getText())][2] = Integer
+									.parseInt(textEndWoche.getText()); // [x] -> Bungalow Nummer; [y] -> Variable 3
 						}
-						// Begrenzungen der Start- und Endwoche fertig programmieren!!
+						
 
 
 					buchungen[Integer.parseInt(textBungalowNr.getText())][3] = Integer
@@ -161,6 +163,7 @@ public class Bungalow extends JFrame {
 		textRueckmeldung.setLineWrap(true); // Zeilenumbruch
 		textRueckmeldung.setWrapStyleWord(true); // Zeilenumbruch nur nach ganzen Wörtern
 		textRueckmeldung.setBounds(26, 550, 675, 400);
+		textRueckmeldung.setEditable(false);
 		contentPane.add(textRueckmeldung);
 
 		// Funktionsweise der Buttons für die Bungalows
