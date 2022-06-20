@@ -14,11 +14,8 @@ public class Bungalow extends JFrame {
 
 	private JPanel contentPane;
 
-	private JTextField textBungalowNr;
-	private JTextField textStartWoche;
-	private JTextField textEndWoche;
-	private JTextField textAnzahlPersonen;
-	private JTextField textJahr;
+	private JTextField textBungalowNr, textStartWoche, textEndWoche, textAnzahlPersonen, textJahr;
+
 	private JTextArea textRueckmeldung;
 
 	private JButton btnBungalow_1, btnBungalow_2, btnBungalow_3, btnBungalow_4, btnBungalow_5, btnBungalow_6,
