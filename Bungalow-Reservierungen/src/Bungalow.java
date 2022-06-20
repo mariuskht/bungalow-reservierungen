@@ -18,12 +18,13 @@ public class Bungalow extends JFrame {
 	private JTextField textStartWoche;
 	private JTextField textEndWoche;
 	private JTextField textAnzahlPersonen;
+	private JTextField textJahr;
 	private JTextArea textRueckmeldung;
 
 	private JButton btnBungalow_1, btnBungalow_2, btnBungalow_3, btnBungalow_4, btnBungalow_5, btnBungalow_6,
 			btnBungalow_7, btnBungalow_8, btnBungalow_9, btnBungalow_10, btnReservierungDurchfuehren;
 
-	private JLabel lblBungalowNr, lblStartWoche, lblEndWoche, lblAnzahlPersonen;
+	private JLabel lblBungalowNr, lblStartWoche, lblEndWoche, lblAnzahlPersonen, lblJahr;
 	
 
 	private int[][] buchungen;
@@ -56,13 +57,13 @@ public class Bungalow extends JFrame {
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 
-		buchungen = new int[11][4]; // textBungalowNr, textStartWoche, textEndWoche, textAnzahlPersonen
+		buchungen = new int[11][5]; // textBungalowNr, textStartWoche, textEndWoche, textAnzahlPersonen, textJahr
 		getContentPane().setLayout(null);
 
 		// Button, um die Reservierung abzuschlie�en
 
 		btnReservierungDurchfuehren = new JButton("Reservierung Durchf\u00FChren");
-		btnReservierungDurchfuehren.setBounds(27, 250, 200, 60);
+		btnReservierungDurchfuehren.setBounds(27, 276, 200, 60);
 		contentPane.add(btnReservierungDurchfuehren);
 		btnReservierungDurchfuehren.addActionListener(new ActionListener() { // wenn button gedr�ckt wird, ...
 
@@ -131,9 +132,13 @@ public class Bungalow extends JFrame {
 							}else {
 								throw new Exception();
 							}
-						
-						
-
+							
+							if(Integer.parseInt(textJahr.getText()) >= 2022) {
+								buchungen[Integer.parseInt(textBungalowNr.getText())][4] = Integer.parseInt(textJahr.getText());
+							}else {
+								throw new Exception();
+							}
+							
 					textRueckmeldung.setText(
 							"Bungalow-Nummer: " + buchungen[Integer.parseInt(textBungalowNr.getText())][0] + "\n" + // Reservierung
 																													// wird
@@ -143,7 +148,8 @@ public class Bungalow extends JFrame {
 																													// best�tigt
 									"Start-Woche: " + buchungen[Integer.parseInt(textBungalowNr.getText())][1] + "\n"
 									+ "End-Woche: " + buchungen[Integer.parseInt(textBungalowNr.getText())][2] + "\n"
-									+ "Anzahl Personen: " + buchungen[Integer.parseInt(textBungalowNr.getText())][3]);
+									+ "Anzahl Personen: " + buchungen[Integer.parseInt(textBungalowNr.getText())][3] + "\n"
+									+ "Jahr: " + buchungen[Integer.parseInt(textBungalowNr.getText())][4]);
 				} catch (Exception exception) {
 					textRueckmeldung.setText("Diese Eingabe war fehlerhaft!");
 				}
@@ -152,6 +158,7 @@ public class Bungalow extends JFrame {
 				textStartWoche.setText("");
 				textEndWoche.setText("");
 				textAnzahlPersonen.setText("");
+				textJahr.setText("");
 
 			}
 		});
@@ -174,8 +181,13 @@ public class Bungalow extends JFrame {
 
 		textAnzahlPersonen = new JTextField();
 		textAnzahlPersonen.setColumns(10);
-		textAnzahlPersonen.setBounds(200, 173, 164, 40);
+		textAnzahlPersonen.setBounds(200, 174, 164, 40);
 		contentPane.add(textAnzahlPersonen);
+		
+		textJahr = new JTextField();
+		textJahr.setColumns(10);
+		textJahr.setBounds(200, 225, 164, 40);
+		contentPane.add(textJahr);
 
 		// Label zu den Eingabetexten
 
@@ -194,6 +206,10 @@ public class Bungalow extends JFrame {
 		lblAnzahlPersonen = new JLabel("Anzahl Personen:");
 		lblAnzahlPersonen.setBounds(27, 174, 150, 40);
 		contentPane.add(lblAnzahlPersonen);
+		
+		lblJahr = new JLabel("Jahr:");
+		lblJahr.setBounds(27, 225, 150, 40);
+		contentPane.add(lblJahr);
 
 		// R�ckmeldungstext der Reservierung
 		textRueckmeldung = new JTextArea();
