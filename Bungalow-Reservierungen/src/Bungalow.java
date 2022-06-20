@@ -24,6 +24,7 @@ public class Bungalow extends JFrame {
 			btnBungalow_7, btnBungalow_8, btnBungalow_9, btnBungalow_10, btnReservierungDurchfuehren;
 
 	private JLabel lblBungalowNr, lblStartWoche, lblEndWoche, lblAnzahlPersonen;
+	
 
 	private int[][] buchungen;
 
@@ -58,12 +59,12 @@ public class Bungalow extends JFrame {
 		buchungen = new int[11][4]; // textBungalowNr, textStartWoche, textEndWoche, textAnzahlPersonen
 		getContentPane().setLayout(null);
 
-		// Button, um die Reservierung abzuschließen
+		// Button, um die Reservierung abzuschlieï¿½en
 
 		btnReservierungDurchfuehren = new JButton("Reservierung Durchf\u00FChren");
 		btnReservierungDurchfuehren.setBounds(27, 250, 200, 60);
 		contentPane.add(btnReservierungDurchfuehren);
-		btnReservierungDurchfuehren.addActionListener(new ActionListener() { // wenn button gedrückt wird, ...
+		btnReservierungDurchfuehren.addActionListener(new ActionListener() { // wenn button gedrï¿½ckt wird, ...
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
@@ -72,10 +73,12 @@ public class Bungalow extends JFrame {
 
 						if (Integer.parseInt(textBungalowNr.getText()) <= 0
 								|| Integer.parseInt(textBungalowNr.getText()) > 10) {
+							
 							throw new Exception();											//Fehler Bungalow-Nummer abfangen
 						}else {
 							buchungen[Integer.parseInt(textBungalowNr.getText())][0] = Integer
 									.parseInt(textBungalowNr.getText()); // [x] -> Bungalow Nummer; [y] -> Variable 1
+							
 						}
 
 						
@@ -83,26 +86,61 @@ public class Bungalow extends JFrame {
 						if (Integer.parseInt(textStartWoche.getText()) < 1|| Integer.parseInt(textStartWoche.getText()) > 51 ||
 								Integer.parseInt(textEndWoche.getText()) < 1 || Integer.parseInt(textEndWoche.getText()) > 52 ||
 								Integer.parseInt(textStartWoche.getText()) >= Integer.parseInt(textEndWoche.getText())){
+							
 							throw new Exception();												//Fehler Start- und Endwoche abfangen
 						}else {
 							buchungen[Integer.parseInt(textBungalowNr.getText())][1] = Integer
 									.parseInt(textStartWoche.getText()); // [x] -> Bungalow Nummer; [y] -> Variable 2
 							buchungen[Integer.parseInt(textBungalowNr.getText())][2] = Integer
 									.parseInt(textEndWoche.getText()); // [x] -> Bungalow Nummer; [y] -> Variable 3
+							
+							
 						}
 						
-
-
-					buchungen[Integer.parseInt(textBungalowNr.getText())][3] = Integer
-							.parseInt(textAnzahlPersonen.getText()); // [x] -> Bungalow Nummer; [y] -> Variable 4
+						
+							if (Integer.parseInt(textAnzahlPersonen.getText()) <= 5 && Integer.parseInt(textBungalowNr.getText()) == 1 && Integer.parseInt(textAnzahlPersonen.getText()) > 0) {
+								buchungen[Integer.parseInt(textBungalowNr.getText())][3] = Integer.parseInt(textAnzahlPersonen.getText());
+								
+							}else if (Integer.parseInt(textAnzahlPersonen.getText()) <= 8 && Integer.parseInt(textBungalowNr.getText()) == 2 && Integer.parseInt(textAnzahlPersonen.getText()) > 0) {
+								buchungen[Integer.parseInt(textBungalowNr.getText())][3] = Integer.parseInt(textAnzahlPersonen.getText());
+								
+							}else if (Integer.parseInt(textAnzahlPersonen.getText()) <= 12 && Integer.parseInt(textBungalowNr.getText()) == 3 && Integer.parseInt(textAnzahlPersonen.getText()) > 0) {
+								buchungen[Integer.parseInt(textBungalowNr.getText())][3] = Integer.parseInt(textAnzahlPersonen.getText());
+								
+							}else if (Integer.parseInt(textAnzahlPersonen.getText()) <= 4 && Integer.parseInt(textBungalowNr.getText()) == 4 && Integer.parseInt(textAnzahlPersonen.getText()) > 0) {
+								buchungen[Integer.parseInt(textBungalowNr.getText())][3] = Integer.parseInt(textAnzahlPersonen.getText());
+								
+							}else if (Integer.parseInt(textAnzahlPersonen.getText()) <= 6 && Integer.parseInt(textBungalowNr.getText()) == 5 && Integer.parseInt(textAnzahlPersonen.getText()) > 0) {
+								buchungen[Integer.parseInt(textBungalowNr.getText())][3] = Integer.parseInt(textAnzahlPersonen.getText());
+								
+							}else if (Integer.parseInt(textAnzahlPersonen.getText()) <= 7 && Integer.parseInt(textBungalowNr.getText()) == 6 && Integer.parseInt(textAnzahlPersonen.getText()) > 0) {
+								buchungen[Integer.parseInt(textBungalowNr.getText())][3] = Integer.parseInt(textAnzahlPersonen.getText());
+								
+							}else if (Integer.parseInt(textAnzahlPersonen.getText()) <= 9 && Integer.parseInt(textBungalowNr.getText()) == 7 && Integer.parseInt(textAnzahlPersonen.getText()) > 0) {
+								buchungen[Integer.parseInt(textBungalowNr.getText())][3] = Integer.parseInt(textAnzahlPersonen.getText());
+								
+							}else if (Integer.parseInt(textAnzahlPersonen.getText()) <= 13 && Integer.parseInt(textBungalowNr.getText()) == 8 && Integer.parseInt(textAnzahlPersonen.getText()) > 0) {
+								buchungen[Integer.parseInt(textBungalowNr.getText())][3] = Integer.parseInt(textAnzahlPersonen.getText());
+								
+							}else if (Integer.parseInt(textAnzahlPersonen.getText()) <= 11 && Integer.parseInt(textBungalowNr.getText()) == 9 && Integer.parseInt(textAnzahlPersonen.getText()) > 0) {
+								buchungen[Integer.parseInt(textBungalowNr.getText())][3] = Integer.parseInt(textAnzahlPersonen.getText());
+								
+							}else if (Integer.parseInt(textAnzahlPersonen.getText()) <= 10 && Integer.parseInt(textBungalowNr.getText()) == 10 && Integer.parseInt(textAnzahlPersonen.getText()) > 0) {
+								buchungen[Integer.parseInt(textBungalowNr.getText())][3] = Integer.parseInt(textAnzahlPersonen.getText());
+								
+							}else {
+								throw new Exception();
+							}
+						
+						
 
 					textRueckmeldung.setText(
 							"Bungalow-Nummer: " + buchungen[Integer.parseInt(textBungalowNr.getText())][0] + "\n" + // Reservierung
 																													// wird
 																													// in
 																													// der
-																													// TextRückmeldung
-																													// bestätigt
+																													// TextRï¿½ckmeldung
+																													// bestï¿½tigt
 									"Start-Woche: " + buchungen[Integer.parseInt(textBungalowNr.getText())][1] + "\n"
 									+ "End-Woche: " + buchungen[Integer.parseInt(textBungalowNr.getText())][2] + "\n"
 									+ "Anzahl Personen: " + buchungen[Integer.parseInt(textBungalowNr.getText())][3]);
@@ -110,7 +148,7 @@ public class Bungalow extends JFrame {
 					textRueckmeldung.setText("Diese Eingabe war fehlerhaft!");
 				}
 
-				textBungalowNr.setText(""); // Fenster TextRückmeldung wird geleert
+				textBungalowNr.setText(""); // Fenster TextRï¿½ckmeldung wird geleert
 				textStartWoche.setText("");
 				textEndWoche.setText("");
 				textAnzahlPersonen.setText("");
@@ -118,7 +156,7 @@ public class Bungalow extends JFrame {
 			}
 		});
 
-		// Eingabetexte für die Reservierung
+		// Eingabetexte fï¿½r die Reservierung
 		textBungalowNr = new JTextField();
 		textBungalowNr.setBounds(200, 21, 164, 40);
 		contentPane.add(textBungalowNr);
@@ -157,19 +195,19 @@ public class Bungalow extends JFrame {
 		lblAnzahlPersonen.setBounds(27, 174, 150, 40);
 		contentPane.add(lblAnzahlPersonen);
 
-		// Rückmeldungstext der Reservierung
+		// Rï¿½ckmeldungstext der Reservierung
 		textRueckmeldung = new JTextArea();
 		textRueckmeldung.setRows(4);
 		textRueckmeldung.setLineWrap(true); // Zeilenumbruch
-		textRueckmeldung.setWrapStyleWord(true); // Zeilenumbruch nur nach ganzen Wörtern
+		textRueckmeldung.setWrapStyleWord(true); // Zeilenumbruch nur nach ganzen Wï¿½rtern
 		textRueckmeldung.setBounds(26, 550, 675, 400);
 		textRueckmeldung.setEditable(false);
 		contentPane.add(textRueckmeldung);
 
-		// Funktionsweise der Buttons für die Bungalows
+		// Funktionsweise der Buttons fï¿½r die Bungalows
 
 		btnBungalow_1 = new JButton("Bungalow 1");
-		btnBungalow_1.addActionListener(new ActionListener() { // wenn Button "Bungalow 1" gedrückt
+		btnBungalow_1.addActionListener(new ActionListener() { // wenn Button "Bungalow 1" gedrï¿½ckt
 			public void actionPerformed(ActionEvent e) {
 				textRueckmeldung.setText("Bungalow-Nummer: 1" + "\n" + "Start-Woche: " + buchungen[1][1] + "\n"
 						+ "End-Woche: " + buchungen[1][2] + "\n" + "Anzahl Personen: " + buchungen[1][3]);
@@ -180,7 +218,7 @@ public class Bungalow extends JFrame {
 		contentPane.add(btnBungalow_1);
 
 		btnBungalow_2 = new JButton("Bungalow 2");
-		btnBungalow_2.addActionListener(new ActionListener() { // wenn Button "Bungalow 2" gedrückt
+		btnBungalow_2.addActionListener(new ActionListener() { // wenn Button "Bungalow 2" gedrï¿½ckt
 			public void actionPerformed(ActionEvent e) {
 				textRueckmeldung.setText("Bungalow-Nummer: 2" + "\n" + "Start-Woche: " + buchungen[2][1] + "\n"
 						+ "End-Woche: " + buchungen[2][2] + "\n" + "Anzahl Personen: " + buchungen[2][3]);
@@ -190,7 +228,7 @@ public class Bungalow extends JFrame {
 		contentPane.add(btnBungalow_2);
 
 		btnBungalow_3 = new JButton("Bungalow 3");
-		btnBungalow_3.addActionListener(new ActionListener() { // wenn Button "Bungalow 3" gedrückt
+		btnBungalow_3.addActionListener(new ActionListener() { // wenn Button "Bungalow 3" gedrï¿½ckt
 			public void actionPerformed(ActionEvent e) {
 				textRueckmeldung.setText("Bungalow-Nummer: 3" + "\n" + "Start-Woche: " + buchungen[3][1] + "\n"
 						+ "End-Woche: " + buchungen[3][2] + "\n" + "Anzahl Personen: " + buchungen[3][3]);
@@ -200,7 +238,7 @@ public class Bungalow extends JFrame {
 		contentPane.add(btnBungalow_3);
 
 		btnBungalow_4 = new JButton("Bungalow 4");
-		btnBungalow_4.addActionListener(new ActionListener() { // wenn Button "Bungalow 4" gedrückt
+		btnBungalow_4.addActionListener(new ActionListener() { // wenn Button "Bungalow 4" gedrï¿½ckt
 			public void actionPerformed(ActionEvent e) {
 				textRueckmeldung.setText("Bungalow-Nummer: 4" + "\n" + "Start-Woche: " + buchungen[4][1] + "\n"
 						+ "End-Woche: " + buchungen[4][2] + "\n" + "Anzahl Personen: " + buchungen[4][3]);
@@ -210,7 +248,7 @@ public class Bungalow extends JFrame {
 		contentPane.add(btnBungalow_4);
 
 		btnBungalow_5 = new JButton("Bungalow 5");
-		btnBungalow_5.addActionListener(new ActionListener() { // wenn Button "Bungalow 5" gedrückt
+		btnBungalow_5.addActionListener(new ActionListener() { // wenn Button "Bungalow 5" gedrï¿½ckt
 			public void actionPerformed(ActionEvent e) {
 				textRueckmeldung.setText("Bungalow-Nummer: 5" + "\n" + "Start-Woche: " + buchungen[5][1] + "\n"
 						+ "End-Woche: " + buchungen[5][2] + "\n" + "Anzahl Personen: " + buchungen[5][3]);
@@ -220,7 +258,7 @@ public class Bungalow extends JFrame {
 		contentPane.add(btnBungalow_5);
 
 		btnBungalow_6 = new JButton("Bungalow 6");
-		btnBungalow_6.addActionListener(new ActionListener() { // wenn Button "Bungalow 6" gedrückt
+		btnBungalow_6.addActionListener(new ActionListener() { // wenn Button "Bungalow 6" gedrï¿½ckt
 			public void actionPerformed(ActionEvent e) {
 				textRueckmeldung.setText("Bungalow-Nummer: 6" + "\n" + "Start-Woche: " + buchungen[6][1] + "\n"
 						+ "End-Woche: " + buchungen[6][2] + "\n" + "Anzahl Personen: " + buchungen[6][3]);
@@ -230,7 +268,7 @@ public class Bungalow extends JFrame {
 		contentPane.add(btnBungalow_6);
 
 		btnBungalow_7 = new JButton("Bungalow 7");
-		btnBungalow_7.addActionListener(new ActionListener() { // wenn Button "Bungalow 7" gedrückt
+		btnBungalow_7.addActionListener(new ActionListener() { // wenn Button "Bungalow 7" gedrï¿½ckt
 			public void actionPerformed(ActionEvent e) {
 				textRueckmeldung.setText("Bungalow-Nummer: 7" + "\n" + "Start-Woche: " + buchungen[7][1] + "\n"
 						+ "End-Woche: " + buchungen[7][2] + "\n" + "Anzahl Personen: " + buchungen[7][3]);
@@ -240,7 +278,7 @@ public class Bungalow extends JFrame {
 		contentPane.add(btnBungalow_7);
 
 		btnBungalow_8 = new JButton("Bungalow 8");
-		btnBungalow_8.addActionListener(new ActionListener() { // wenn Button "Bungalow 8" gedrückt
+		btnBungalow_8.addActionListener(new ActionListener() { // wenn Button "Bungalow 8" gedrï¿½ckt
 			public void actionPerformed(ActionEvent e) {
 				textRueckmeldung.setText("Bungalow-Nummer: 8" + "\n" + "Start-Woche: " + buchungen[8][1] + "\n"
 						+ "End-Woche: " + buchungen[8][2] + "\n" + "Anzahl Personen: " + buchungen[8][3]);
@@ -250,7 +288,7 @@ public class Bungalow extends JFrame {
 		contentPane.add(btnBungalow_8);
 
 		btnBungalow_9 = new JButton("Bungalow 9");
-		btnBungalow_9.addActionListener(new ActionListener() { // wenn Button "Bungalow 9" gedrückt
+		btnBungalow_9.addActionListener(new ActionListener() { // wenn Button "Bungalow 9" gedrï¿½ckt
 			public void actionPerformed(ActionEvent e) {
 				textRueckmeldung.setText("Bungalow-Nummer: 9" + "\n" + "Start-Woche: " + buchungen[9][1] + "\n"
 						+ "End-Woche: " + buchungen[9][2] + "\n" + "Anzahl Personen: " + buchungen[9][3]);
@@ -260,7 +298,7 @@ public class Bungalow extends JFrame {
 		contentPane.add(btnBungalow_9);
 
 		btnBungalow_10 = new JButton("Bungalow 10");
-		btnBungalow_10.addActionListener(new ActionListener() { // wenn Button "Bungalow 10" gedrückt
+		btnBungalow_10.addActionListener(new ActionListener() { // wenn Button "Bungalow 10" gedrï¿½ckt
 			public void actionPerformed(ActionEvent e) {
 				textRueckmeldung.setText("Bungalow-Nummer: 10" + "\n" + "Start-Woche: " + buchungen[10][1] + "\n"
 						+ "End-Woche: " + buchungen[10][2] + "\n" + "Anzahl Personen: " + buchungen[10][3]);
