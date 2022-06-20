@@ -107,7 +107,7 @@ public class Bungalow extends JFrame {
 							}else if (Integer.parseInt(textAnzahlPersonen.getText()) <= 12 && Integer.parseInt(textBungalowNr.getText()) == 3 && Integer.parseInt(textAnzahlPersonen.getText()) > 0) {
 								buchungen[Integer.parseInt(textBungalowNr.getText())][3] = Integer.parseInt(textAnzahlPersonen.getText());
 								
-							}else if (Integer.parseInt(textAnzahlPersonen.getText()) <= 4 && Integer.parseInt(textBungalowNr.getText()) == 4 && Integer.parseInt(textAnzahlPersonen.getText()) > 0) {
+							}else if (Integer.parseInt(textAnzahlPersonen.getText()) <= 2 && Integer.parseInt(textBungalowNr.getText()) == 4 && Integer.parseInt(textAnzahlPersonen.getText()) > 0) {
 								buchungen[Integer.parseInt(textBungalowNr.getText())][3] = Integer.parseInt(textAnzahlPersonen.getText());
 								
 							}else if (Integer.parseInt(textAnzahlPersonen.getText()) <= 6 && Integer.parseInt(textBungalowNr.getText()) == 5 && Integer.parseInt(textAnzahlPersonen.getText()) > 0) {
@@ -116,7 +116,7 @@ public class Bungalow extends JFrame {
 							}else if (Integer.parseInt(textAnzahlPersonen.getText()) <= 7 && Integer.parseInt(textBungalowNr.getText()) == 6 && Integer.parseInt(textAnzahlPersonen.getText()) > 0) {
 								buchungen[Integer.parseInt(textBungalowNr.getText())][3] = Integer.parseInt(textAnzahlPersonen.getText());
 								
-							}else if (Integer.parseInt(textAnzahlPersonen.getText()) <= 9 && Integer.parseInt(textBungalowNr.getText()) == 7 && Integer.parseInt(textAnzahlPersonen.getText()) > 0) {
+							}else if (Integer.parseInt(textAnzahlPersonen.getText()) <= 20 && Integer.parseInt(textBungalowNr.getText()) == 7 && Integer.parseInt(textAnzahlPersonen.getText()) > 0) {
 								buchungen[Integer.parseInt(textBungalowNr.getText())][3] = Integer.parseInt(textAnzahlPersonen.getText());
 								
 							}else if (Integer.parseInt(textAnzahlPersonen.getText()) <= 13 && Integer.parseInt(textBungalowNr.getText()) == 8 && Integer.parseInt(textAnzahlPersonen.getText()) > 0) {
